@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_widget_sample/Models/RouteModel.dart';
 import 'Scenes/EqualContainer.dart';
 
 void main() => runApp(MyApp());
@@ -28,10 +29,10 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeWidget extends StatelessWidget {
-  final List<ListItem> items;
+  final List<RouteModel> items;
   HomeWidget({Key key, @required this.items}) : super(key: key);
 
-  Widget routeItem(BuildContext context, RouteModel item) {
+  Widget routeItem(BuildContext context, RouteItem item) {
     return SizedBox(
         child: RaisedButton(
             child: Text(item.title),
@@ -49,6 +50,8 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     var listView = ListView.builder(
       itemBuilder: (context, position) {
         final item = items[position];
@@ -63,47 +66,36 @@ class HomeWidget extends StatelessWidget {
 
     return Container(
       child: listView,
+      color: Colors.yellow,
       padding: EdgeInsets.all(20.0),
     );
   }
 }
 
-abstract class ListItem {}
 
-class RouteHeader implements ListItem {
-  final String title;
-  RouteHeader({this.title});
-}
-
-class RouteModel implements ListItem {
-  final String title;
-  final String location;
-  RouteModel({this.title, this.location});
-}
-
-List<ListItem> routes = [
+List<RouteModel> routes = [
   RouteHeader(title: "Containers"),
-  RouteModel(title: "Stretch Container", location: '/strech_container'),
-  RouteModel(title: "Partial Fill Container", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Stretch Container", location: '/strech_container'),
-  RouteModel(title: "Partial Fill Container", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Stretch Container", location: '/strech_container'),
+  RouteItem(title: "Partial Fill Container", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Stretch Container", location: '/strech_container'),
+  RouteItem(title: "Partial Fill Container", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
   RouteHeader(title: "Containers2"),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Stretch Container", location: '/strech_container'),
-  RouteModel(title: "Partial Fill Container", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Stretch Container", location: '/strech_container'),
+  RouteItem(title: "Partial Fill Container", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
   RouteHeader(title: "List Items"),
-  RouteModel(title: "Stretch Container", location: '/strech_container'),
-  RouteModel(title: "Partial Fill Container", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Stretch Container", location: '/strech_container'),
+  RouteItem(title: "Partial Fill Container", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
   RouteHeader(title: "List Items2"),
-  RouteModel(title: "Stretch Container", location: '/strech_container'),
-  RouteModel(title: "Partial Fill Container", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
-  RouteModel(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Stretch Container", location: '/strech_container'),
+  RouteItem(title: "Partial Fill Container", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
+  RouteItem(title: "Partial", location: '/strech_container'),
 ];
