@@ -1,6 +1,3 @@
-
-
-
 abstract class RouteModel {}
 
 class RouteHeader implements RouteModel {

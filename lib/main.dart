@@ -6,8 +6,6 @@ import 'Scenes/HomeWidget.dart';
 
 void main() => runApp(MyApp());
 
-
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,6 +28,7 @@ Scaffold createScaffold({String title, Widget body}) {
     body: body,
   );
 }
+
 List<RouteModel> routes = [
   RouteHeader(title: "Containers"),
   RouteItem(title: "Stretch Container", location: '/strech_container'),

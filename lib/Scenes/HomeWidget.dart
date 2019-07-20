@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_sample/Models/RouteModel.dart';
 
@@ -21,22 +17,28 @@ class HomeWidget extends StatelessWidget {
 
   Widget headerItem(BuildContext context, RouteHeader item) {
     return SizedBox(
+        child: Container(
+            child: Text(item.title),
+            width: double.infinity,
+            height: 40,
+            alignment: Alignment.center,
+            color: Colors.red));
+  }
 
-        child: Container(child: Text(item.title),width: double.infinity, height: 40, alignment: Alignment.center,color: Colors.red));
+  Widget buildListItem(BuildContext context, int position) {
+    final item = items[position];
+    if (item is RouteHeader) {
+      return headerItem(context, item);
+    } else if (item is RouteModel) {
+      return routeItem(context, item);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     var listView = ListView.builder(
       itemBuilder: (context, position) {
-        final item = items[position];
-        if (item is RouteHeader) {
-          return headerItem(context, item);
-        } else if (item is RouteModel) {
-          return routeItem(context, item);
-        }
+        return buildListItem(context, position);
       },
       itemCount: items.length,
     );
